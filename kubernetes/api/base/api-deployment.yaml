@@ -23,7 +23,10 @@ spec:
             - name: DB_DATABASE
               value: postgres-db
             - name: DB_USER
-              value: postgres
+              valueFrom:
+                secretKeyRef:
+                  name: api
+                  key: db_username
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
